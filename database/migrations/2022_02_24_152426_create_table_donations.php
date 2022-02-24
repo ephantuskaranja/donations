@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('donor_id')->constrained('donors');
             $table->float('amount', 8, 2);
+            $table->string('reference');
+            $table->string('pesapal_tracking_id');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
