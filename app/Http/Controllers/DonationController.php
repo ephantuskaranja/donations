@@ -85,6 +85,39 @@ class DonationController extends Controller
         return $iframe_src;
     }
 
+    public function getParametersForm()
+    {
+        return view('parameters');
+    }
+
+    public function setParameters(Request $request)
+    {
+        info($request->consumer_key);
+        info($request->consumer_secret);
+
+        $key1 = 'CONSUMER_KEY';
+        $value1 = $request->consumer_key;
+
+        $key2 = 'CONSUMER_SECRET';
+        $value2 = $request->consumer_secret;
+
+        $path = base_path('.env');
+
+        file_put_contents($path, str_replace(
+            $key1 . '=' . env($key1),
+            $key1 . '=' . $value1,
+            file_get_contents($path)
+        ));
+
+        file_put_contents($path, str_replace(
+            $key2 . '=' . env($key2),
+            $key2 . '=' . $value2,
+            file_get_contents($path)
+        ));
+
+        return response()->json(['parameters set successfully']);
+    }
+
     public function saveToDb()
     {
         $reference = null;

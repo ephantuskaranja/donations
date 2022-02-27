@@ -15,11 +15,13 @@ class MailController extends Controller
             ->where('schedule_type', 'monthly')
             ->get();
 
+        $count = 0;
+
         foreach ($users as $user) {
             $mailData = [
                 'title' => 'Reminder',
                 'body' => 'Please donate',
-                'link' => 'http://127.0.0.1:8000/'
+                'link' => 'http://127.0.0.1:8080/'
             ];
 
             Mail::to($user->email)->send(new sendReminderMail($mailData));
@@ -27,11 +29,12 @@ class MailController extends Controller
             //update in mails table
             DB::table('emails')->insert([
                 'donor_id' => $user->id,
-                'payload' => $mailData,
+                'payload' => 'reminder email',
             ]);
+
+            $count++;
         }
 
-
-        return response()->json(['email sent successfully']);
+        return response()->json(['message' => 'emails sent successfully', 'count' => $count]);
     }
 }

@@ -16,6 +16,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'consumer_key' => env('CONSUMER_KEY', ''),
+    'consumer_secret' => env('CONSUMER_SECRET', ''),
 
     /*
     |--------------------------------------------------------------------------

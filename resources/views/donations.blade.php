@@ -11,79 +11,20 @@
 
 <body>
     <div class="container">
-        <h3>PesaPal Donate</h3>
-        <form action="{{ route('donate') }}" method="post">
-            @csrf
-            <div class="col-md-8 card">
-                <div class="card-header">
-                    My Donation Page
-                </div>
-                <div class="card-body">
-                    <legend>User Details</legend>
-                    <div class="row">
-                        <div class="form-group col-md-6">
-                            <label for="exampleInputFullname">First Name</label>
-                            <input type="text" name="first_name" class="form-control" id="first_name" value=""
-                                placeholder="" required>
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="exampleInputFullname">Last Name</label>
-                            <input type="text" name="last_name" class="form-control" id="last_name" value=""
-                                placeholder="" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputIdNumber">Email</label>
-                                <input type="email" name="email" class="form-control" id="email" placeholder=""
-                                    value="" required>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="phone">Phonenumber(254..)</label>
-                                <input type="number" name="phonenumber" class="form-control" id="phone" value=""
-                                    placeholder="eg. 254724401515">
-                            </div>
-                        </div>
-                    </div>
-                    <legend>Donation Details</legend>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Amount</label>
-                        <input type="number" class="form-control" id="bal_amount" name="amount" value="0.00" step="0.01"
-                            placeholder="" required>
-                    </div><br>
-                    <h6>Donation Schedules</h6>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="donation_type" id="flexRadioDefault1"
-                            checked>
-                        <label class="form-check-label" for="flexRadioDefault1">
-                            One-Off
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="donation_type" id="flexRadioDefault2">
-                        <label class="form-check-label" for="flexRadioDefault2">
-                            Monthly
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="donation_type" id="flexRadioDefault3">
-                        <label class="form-check-label" for="flexRadioDefault3">
-                            Annual
-                        </label>
-                    </div><br>
-                    <div class="form-group form-control">
-                        <button type="submit" id="btnConfirmPayment"
-                            class="btn btn-primary btn-lg">
-                            Donate</button>
-                    </div>
-                </div>
-            </div>
+        <h3> Welcome To PesaPal Donate</h3>
+        <div class="row mt-10">
+            <div style="width:800px; margin:0 auto;">
+                <h4>Click here to send reminder emails: <a class="btn btn-primary"
+                    href="{{ route('reminder-emails') }}">Reminder</a></h4><br>
+
+                <h4>Click here to set Parameters: <a class="btn btn-primary"
+                    href="{{ route('set-parameters') }}">Set Parameters</a></h4>
+            </div>            
         </div>
     </div>
+    </div>
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
 

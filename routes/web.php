@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [DonationController::class, 'index']);
 Route::post('/donate', [DonationController::class, 'sendRequest'])->name('donate');
+Route::get('set-paramers', [DonationController::class, 'getParametersForm'])->name('get-parameter-form');
+Route::post('set-paramers', [DonationController::class, 'setParameters'])->name('set-parameters');
 
 
-Route::get('email', [MailController::class, 'index']);
+Route::get('email', [MailController::class, 'index'])->name('reminder-emails');
