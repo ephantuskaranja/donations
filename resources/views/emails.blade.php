@@ -16,31 +16,46 @@
 <body>
     <div class="container">
         <h3> Sent Emails</h3><br>
+
+        @if ($message = Session::get('error'))
+        <div class="alert alert-error alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+        @endif
+
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+        @endif
+
         <table id="example" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Payload</th>
-                <th>Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($emails as $e)
-            <tr>
-                <td>{{ $e->donor}}</td>
-                <td>{{ $e->payload }}</td>
-                <td>{{ $e->created_at }}</td>                
-            </tr>
-            @endforeach
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Payload</th>
-                <th>Date</th>
-            </tr>
-        </tfoot>
-    </table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Payload</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($emails as $e)
+                <tr>
+                    <td>{{ $e->donor}}</td>
+                    <td>{{ $e->payload }}</td>
+                    <td>{{ $e->created_at }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>Payload</th>
+                    <th>Date</th>
+                </tr>
+            </tfoot>
+        </table>
 
     </div>
     </div>
