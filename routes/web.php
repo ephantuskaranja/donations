@@ -23,3 +23,4 @@ Route::post('set-paramers', [DonationController::class, 'setParameters'])->name(
 
 
 Route::get('email', [MailController::class, 'index'])->name('reminder-emails');
+Route::get('emails', [MailController::class, 'show'])->name('show-emails');

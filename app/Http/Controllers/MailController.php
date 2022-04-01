@@ -37,4 +37,13 @@ class MailController extends Controller
 
         return response()->json(['message' => 'emails sent successfully', 'count' => $count]);
     }
+
+    public function show()
+    {
+        $emails = DB::table('emails')
+            ->select('emails.*', 'donors.name as donor')
+            ->join('donors', 'emails.donor_id', '=', 'donors.id')->get();
+
+        return view('emails', compact('emails'));
+    }
 }
