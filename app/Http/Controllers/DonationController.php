@@ -92,9 +92,6 @@ class DonationController extends Controller
 
     public function setParameters(Request $request)
     {
-        info($request->consumer_key);
-        info($request->consumer_secret);
-
         $key1 = 'CONSUMER_KEY';
         $value1 = $request->consumer_key;
 
